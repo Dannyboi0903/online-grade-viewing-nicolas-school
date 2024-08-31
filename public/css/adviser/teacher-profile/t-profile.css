@@ -1,0 +1,124 @@
+.option7 {
+  border-left: 5px solid #8f2025;
+  background-color: #dadada;
+  color: #8f2025;
+  cursor: pointer;
+}
+
+.option7:hover {
+  background-color: #dadada;
+}
+
+.main {
+  height: calc(100vh - 70px);
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 40px 30px 30px 30px;
+  background-color: #dadada;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, rgb(0, 0, 85), rgb(0, 0, 50));
+}
+.main::-webkit-scrollbar {
+  width: 5px;
+}
+.main::-webkit-scrollbar-track {
+  background-color: #9e9e9eb2;
+}
+
+.add-button {
+  padding: 6px;
+  border-radius: 10px;
+  background-color: #8f2025;
+  color: white;
+  border: 1px solid #8f2025;
+  cursor: pointer;
+}
+
+.search-box {
+  width: 15%;
+  padding: 6px;
+  border: 1px solid #8f2025;
+  border-radius: 10px;
+}
+
+.search-box:focus {
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* PROFILE START */
+.report-container {
+  min-height: auto;
+  width: 100%;
+  margin: 20px auto 0px auto;
+  background-color: none;
+  border-radius: 10px;
+}
+
+.profile-container {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 800px;
+  align-items: center;
+}
+
+.upload-input {
+  display: none;
+}
+
+.profile-image {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-image input {
+  margin-top: 10px;
+}
+
+.profile-info {
+  flex: 2;
+  padding: 20px;
+}
+
+.profile-info h1,
+.profile-info p {
+  margin: 5px 0;
+}
+
+.profile-info h2 {
+  margin: 20px 0 10px;
+  font-size: 20px;
+}
+
+.profile-info p {
+  font-size: 18px;
+}
+
+.profile-info button {
+  padding: 10px 15px;
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.profile-info button:hover {
+  background-color: #005bb5;
+}

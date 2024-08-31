@@ -1,0 +1,10 @@
+.option6 {
+  border-left: 5px solid #8f2025;
+  background-color: #dadada;
+  color: #8f2025;
+  cursor: pointer;
+}
+
+.option6:hover {
+  background-color: #dadada;
+}

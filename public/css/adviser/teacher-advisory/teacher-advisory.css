@@ -1,0 +1,95 @@
+.option3 {
+    border-left: 5px solid #8f2025;
+    background-color: #dadada;
+    color: #8f2025;
+    cursor: pointer;
+}
+
+.option3:hover {
+    background-color: #dadada;
+}
+
+.navcontainer {
+    z-index: 1000;
+}
+
+.fixed-info {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.grading-dropdown {
+    width: 100%;
+    max-width: 200px; /* Adjust as necessary */
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.archive-button {
+    padding: 6px;
+    border-radius: 10px;
+    /* font-size: 1rem; */
+    /* outline: none; */
+    background-color: #8f2025;
+    color: white;
+    border: 1px solid #8f2025;
+    cursor: pointer;
+}
+
+.archive-button:hover {
+    background-color: #cc0000;
+}
+
+#btn-remove {
+    background-color: #8f2025;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #8f2025;
+}
+
+/* BUTTON HOVER DISPLAY MESSAGE */
+.btn-update,
+.btn-remove {
+    background-color: #0073e6; /* old */
+    color: #fff; /* old */
+    padding: 2px; /* old */
+    border: none; /* old */
+    border-radius: 5px; /* old */
+    cursor: pointer; /* old */
+    position: relative; /* old */
+    z-index: 10;
+}
+
+.btn-remove {
+    background-color: #f00;
+}
+
+.btn-update:hover,
+.btn-remove:hover {
+    opacity: 0.8;
+}
+
+/* Tooltip styles */
+.btn-update::after,
+.btn-remove::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.btn-update:hover::after,
+.btn-remove:hover::after {
+    opacity: 1;
+}

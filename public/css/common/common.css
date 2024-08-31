@@ -1,0 +1,287 @@
+/* Main CSS Here */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --background-color1: #fafaff;
+  --background-color2: #ffffff;
+  --background-color3: #ededed;
+  --background-color4: #cad7fda4;
+  --primary-color: #4b49ac;
+  --secondary-color: #0c007d;
+  --Border-color: #3f0097;
+  --one-use-color: #3f0097;
+  --two-use-color: #5500cb;
+}
+body {
+  background-color: var(--background-color4);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Start Header */
+header {
+  height: 80px;
+  width: 100vw;
+  padding: 0 30px;
+  background-color: var(--background-color1);
+  position: fixed;
+  z-index: 100;
+  box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.nbbnhs-logo {
+  height: 4rem;
+  width: 4rem;
+  object-fit: cover;
+}
+
+.icn {
+  height: 30px;
+}
+.menuicn {
+  cursor: pointer;
+  color: #8f2025;
+}
+
+.logosec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5rem;
+}
+
+.logosec {
+  gap: 1.4rem;
+}
+
+.school-name {
+  color: #8f2025;
+}
+/* Header End */
+
+/* NAVBAR START */
+.main-container {
+  display: flex;
+  width: 100vw;
+  position: relative;
+  top: 70px;
+  z-index: 1;
+}
+
+.nav {
+  min-height: 100vh;
+  /* width: 350px; */
+  background-color: var(--background-color2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* box-shadow: 10px 1px 10px rgba(198, 189, 248, 0.825); */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-top: 30px;
+}
+.navcontainer {
+  height: calc(100vh - 70px);
+  width: 250px;
+  position: relative;
+  /* overflow-y: scroll; */
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
+  /* background: gray; */
+}
+.navcontainer::-webkit-scrollbar {
+  display: none;
+}
+.navclose {
+  width: 3.2rem;
+}
+.nav-option {
+  width: 250px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  gap: 1rem;
+  transition: all 0.1s ease-in-out;
+  font-size: 10px;
+  color: #b04c3e;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+}
+.nav-option:hover {
+  border-left: 5px solid #8f2025;
+  background-color: #dadada;
+  color: #8f2025;
+  cursor: pointer;
+}
+.nav-img {
+  height: 20px;
+}
+
+.nav-upper-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: .2rem; */
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+/* NAVBAR END */
+
+/* DATA SEARCH START */
+
+.main {
+  height: calc(100vh - 70px);
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 40px 30px 30px 30px;
+  background-color: #dadada;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, rgb(0, 0, 85), rgb(0, 0, 50));
+}
+.main::-webkit-scrollbar {
+  width: 5px;
+}
+.main::-webkit-scrollbar-track {
+  background-color: #9e9e9eb2;
+}
+.box-container {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: left; */
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  /* margin-top: rem; */
+}
+
+.add-button {
+  /* margin-bottom: 10px; */
+  padding: 6px;
+  border-radius: 10px;
+  /* font-size: 1rem; */
+  /* outline: none; */
+  background-color: #8f2025;
+  color: white;
+  border: 1px solid #8f2025;
+  cursor: pointer;
+  /* min-width: fit-content; */
+}
+
+.search-box {
+  width: 17%;
+  font-size: 11px;
+  padding: 6px;
+  border: 1px solid #8f2025;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.search-box:focus {
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.report-container {
+  min-height: auto;
+  width: 100%;
+  margin: 20px auto 0px auto;
+  background-color: none;
+  border-radius: 10px;
+  /* box-shadow: 3px 3px 10px rgb(188, 188, 188); */
+
+  /* padding: 0px 20px 20px 20px; */
+  /* overflow-x: auto; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+/* .container {
+  width: 80%;
+  margin: 20px auto;
+  overflow-x: auto;  /* Enable horizontal scrolling */
+/* } */
+
+.data-container {
+  width: 100%;
+  margin-right: 20%; /* Ensure wrapper fills container width */
+  overflow-x: auto; /*Enable horizontal scrolling */
+}
+
+.data-table {
+  width: 100%; /* Allow table to expand beyond container */
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  color: #8f2025;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.3rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* .data-table td {
+  vertical-align: middle;
+} */
+
+.data-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.btn-view,
+.btn-edit {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-view {
+  background-color: #007bff;
+}
+
+.btn-edit {
+  background-color: #28a745;
+}
+
+.btn-view:hover,
+.btn-edit:hover {
+  opacity: 0.8;
+}
+
+/* DATA CONTENT END */

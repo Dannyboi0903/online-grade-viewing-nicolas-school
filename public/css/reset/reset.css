@@ -1,0 +1,28 @@
+.password-input-container {
+    position: relative;
+  }
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    cursor: pointer;
+  }
+  .password-checklist {
+    font-size: 0.875rem;
+  }
+  .password-checklist li {
+    color: green;
+  }
+  .password-checklist .invalid {
+    color: red;
+  }
+  .form-control.is-invalid {
+    border-color: red;
+    padding-right: 0.75rem;
+    background-image: none !important; /* Remove the exclamation icon */
+  }
+  
+  #password-error {
+    display: none;
+  }
+  
