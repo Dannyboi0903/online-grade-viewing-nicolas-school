@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AcadChairpersonMiddleware;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
@@ -54,36 +55,33 @@ Route::get('reset/reset', function () {
 // (END) FOR RESET PASSWORD  ---------------------------------------------------------->
 
 
-Route::get('login/admin', function () {
-    return view('login.admin');
-})->name('login.admin');
-
-
-Route::post('login/admin', [loginController::class, 'adminLogin'])->name('login.admin.submit');
+Route::get('login/admin', [\App\Http\Controllers\admin\LoginController::class, 'show'])->name('login.acad_chairperson');
+Route::post('login/admin', [\App\Http\Controllers\admin\LoginController::class, 'login'])->name('login.admin.submit');
 
 // (START) FOR ADMIN PAGE ONLY ---------------------------------------------------------->
-Route::middleware(AdminMiddleware::class)->group(function () {
+Route::middleware(AcadChairpersonMiddleware::class)->group(function () {
 
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/admin/logout', [\App\Http\Controllers\admin\LoginController::class, 'logout'])->name('admin.logout');
 
+    Route::get('/admin/dashboard', [\App\Http\Controllers\admin\DashboardController::class, 'show'])->name('admin.dashboard');
+
+    Route::get('/admin/teacher', [\App\Http\Controllers\admin\TeacherController::class, 'show'])->name('admin.teacher');
+    Route::post('/admin/teacher/add', [\App\Http\Controllers\admin\TeacherController::class, 'add'])->name('admin.add_teacher');
+
+
+    Route::get('/admin/section', [\App\Http\Controllers\admin\SectionController::class, 'show'])->name('admin.section');
+    Route::post('/admin/section/add', [\App\Http\Controllers\admin\SectionController::class, 'add'])->name('admin.add_section');
 });
 
-Route::get('/admin/logout', [AdminController::class, 'logout']);
+
 
 
 Route::get('/admin/student', function () {
     return view('admin.student');
 })->name('admin.student');
 
-Route::get('/admin/teacher', function () {
-    return view('admin.teacher');
-})->name('admin.teacher');
 
-Route::get('/admin/section', function () {
-    return view('admin.section');
-})->name('admin.section');
+
 
 Route::get('/admin/subject', function () {
     return view('admin.subject');

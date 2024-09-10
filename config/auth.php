@@ -40,9 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'admin' => [
+        'acad_chairperson' => [
             'driver' => 'session',
-            'provider' => 'admins'
+            'provider' => 'acad_chairpersons'
+        ],
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers'
         ]
     ],
 
@@ -68,9 +72,13 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-        'admins' => [
+        'acad_chairpersons' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+            'model' => env('AUTH_MODEL', App\Models\AcadChairperson::class),
+        ],
+        'teacher' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Teacher::class),
         ],
 
         // 'users' => [

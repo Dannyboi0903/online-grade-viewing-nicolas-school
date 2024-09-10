@@ -57,10 +57,12 @@
                 </div>
             </a>
 
-            <div class="nav-option logout">
-                <span class="material-symbols-outlined"> logout </span>
-                <h3>Logout</h3>
-            </div>
+            <a href="{{route('admin.logout')}}" class="nav-link">
+                <div class="nav-option logout">
+                    <span class="material-symbols-outlined"> logout </span>
+                    <h3>Logout</h3>
+                </div>
+            </a>
         </div>
     </nav>
 </div>

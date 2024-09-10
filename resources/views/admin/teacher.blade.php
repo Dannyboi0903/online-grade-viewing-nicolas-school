@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/common/res-common.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/common/dropdown.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/admin/teacher/teacher.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/admin/teacher/teacher-modal.css') }}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -37,41 +38,8 @@
         <!-- Start of Section Navbar Menu Content -->
         <div class="main">
             <div class="box-container">
-                <button class="add-button" onclick="openModal('add')">Add Section +</button>
-                <label for="gradeLevel1">Grade Level:</label>
-                <select id="gradeLevel1" class="search-box" title="Select Grade Level">
-                    <option value="">Select</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-                <label for="section1">Section:</label>
-                <select id="section1" class="search-box" title="Select Section">
-                    <option value="">Select</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-                <label for="strand1">Strand:</label>
-                <select id="strand1" class="search-box" title="Select Strand">
-                    <option value="">Select</option>
-                    <option value="ABM">ABM</option>
-                    <option value="STEM">STEM</option>
-                    <option value="HUMSS">HUMSS</option>
-                    <option value="GAS">GAS</option>
-                    <option value="TVL">TVL</option>
-                    <option value="ICT">ICT</option>
-                </select>
+                <button class="add-button" onclick="openModal()">Add Teacher +</button>
+                <input type="text" class="search-box" placeholder="Name: John Doe Smith" />
             </div>
 
             <!-- Start of Section Table -->
@@ -80,23 +48,27 @@
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>Adviser</th>
-                                <th>Grade Level</th>
-                                <th>Section</th>
-                                <th>Strand</th>
-                                <th>Action</th>
+                                <th>Full Name</th>
+                                <th>Date Created</th>
+                                <th>Option</th>
                             </tr>
                         </thead>
                         <tbody id="section-table-body">
-                            <tr>
-                                <td>John D Smith</td>
-                                <td>11</td>
-                                <td>1</td>
-                                <td>HUMSS</td>
-                                <td>
-                                    <button class="btn-edit" onclick="editRow(this)">Update</button>
-                                </td>
-                            </tr>
+                            @foreach ($teachers as $teacher)
+                                <tr>
+                                    <td>
+                                        {{$teacher->first_name}}
+                                        {{$teacher->middle_name}}
+                                        {{$teacher->last_name}}
+                                    </td>
+                                    <td>{{$teacher->created_at->format('F m, Y | H:i:s')}}</td>
+                                    <td>
+                                        <button class="btn-view"
+                                            onclick="openModalCreds('{{$teacher->username}}', '{{$teacher->show_password}}')">View</button>
+                                        <button class="btn-edit" onclick="editRow(this)">Update</button>
+                                    </td>
+                                </tr>
+                            @endforeach
                             <!-- Add more rows as needed -->
                         </tbody>
                     </table>
@@ -105,7 +77,54 @@
         </div>
     </div>
 
+    <!-- Modal for Add/Edit Section -->
+    <div id="teacherModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="closeModal">&times;</span>
+                <h2 id="modal-title">Add Section</h2>
+            </div>
+            <div class="modal-body">
+                <form id="modal-form" method="POST" action="{{route('admin.add_teacher')}}">
+                    @csrf
+                    <div class="modal-section">
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="first_name" required />
+                    </div>
+                    <div class="modal-section">
+                        <label for="minit">Middle Initial:</label>
+                        <input type="text" id="minit" name="middle_name" />
+                    </div>
+                    <div class="modal-section">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="last_name" required />
+                    </div>
+                    <button type="submit" class="save-button">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Showing Creds Section -->
+    <div id="teacherCredsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="closeCredsModal">&times;</span>
+                <h2 id="modal-creds-title">Add Section</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Username: </h3>
+                    <p id="modal-username"></p>
+                    <h3>Password: </h3>
+                    <p id="modal-password"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ asset('js/menu.js') }}"></script>
+    <script src="{{ asset('js/admin/teacher/teacher-modal.js') }}"></script>
 </body>
 
 </html>

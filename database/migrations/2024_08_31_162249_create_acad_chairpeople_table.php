@@ -12,8 +12,10 @@ return new class extends Migration {
     {
         Schema::create('acad_chairpeople', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('username')->unique();
             $table->string('password');
+            $table->foreignId('role_id')->references('id')->on('roles');
             $table->timestamps();
         });
     }
